@@ -1,0 +1,6 @@
+interface:
+  display_name: "开题报告写作与格式"
+  short_description: "按题目规划开题报告，组织和比较研究现状文献，完成授权写作与格式整理"
+  default_prompt: "请使用 $opening-report-writer，根据我的题目、材料与本次要求完成相应的学习、规划、诊断或写作，明确证据与待补信息。"
+policy:
+  allow_implicit_invocation: true
