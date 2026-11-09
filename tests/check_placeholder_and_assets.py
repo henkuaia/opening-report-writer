@@ -117,7 +117,7 @@ def main():
         "该平滑策略仅在训练阶段更新参数且不增加推理阶段的计算开销。"
         "实验以采样频率（kHz）记录信号并将基准值设为 20、窗口时长设为 50 ms，"
         "再根据数据表中的“alarm_state”字段读取标签值为“fault”的样本。"
-        "随后，模型通过平滑系数（$\\alpha \\in [0.9, 0.99]$）更新实验组 G2 的参考阈值，具体更新规则见式（2-3）。"
+        "随后，模型通过平滑系数（α ∈ [0.9, 0.99]）更新实验组 G2 的参考阈值，具体更新规则见式（2-3）。"
     )
     sentences = [s for s in t25c_output.split("。") if s.strip()]
     paren_counts = [count_explanatory_parens(s) for s in sentences]
@@ -125,7 +125,7 @@ def main():
     for required_token in [
         "（Exponential Moving Average, EMA）",
         "（kHz）",
-        "（$\\alpha \\in [0.9, 0.99]$）",
+        "（α ∈ [0.9, 0.99]）",
         "实验组 G2",
         "式（2-3）",
         "“alarm_state”",
@@ -212,14 +212,14 @@ def main():
     t25f_pre_lock = (
         "#### 正文外：前置锁定锚点与术语基准\n"
         "- **固定事实与协议锚点**：① 核心论点：通过跨尺度特征对齐与 EMA 教师更新改善切片表征并开展消融验证；② 数值口径：患者样本数 `1,240 例`、每张切片采样 `512` 个图块、`5 折交叉验证`、`batch=8`；③ 限定条件：`仅在弱监督切片级标签条件下成立`（拟开展状态）；④ 引文映射：`[3]` 绑定患者队列、`[8]` 绑定总目标函数。\n"
-        "- **全局术语与符号基准**：① 模块唯一标准名：`跨尺度特征对齐模块`（2.1.2、2.3.1 与图2-1统一）；② 首见缩写：2.1.2 首见界定 `指数移动平均（Exponential Moving Average, EMA）`，2.3.1 仅用 `EMA`；③ 数学符号区分：患者数 $N_{\\text{pat}}=1,240$、图块数 $N_{\\text{patch}}=512$，对齐损失统一为 $L_{\\text{align}}$。"
+        "- **全局术语与符号基准**：① 模块唯一标准名：`跨尺度特征对齐模块`（2.1.2、2.3.1 与图2-1统一）；② 首见缩写：2.1.2 首见界定 `指数移动平均（Exponential Moving Average, EMA）`，2.3.1 仅用 `EMA`；③ 数学符号区分：患者数 N_pat=1,240、图块数 N_patch=512，对齐损失统一为 L_align。"
     )
     t25f_main_text = (
-        "**2.1.2 主要研究内容：** 针对总样本量为 $N_{\\text{pat}}=1,240$ 例的患者队列[3]，"
+        "**2.1.2 主要研究内容：** 针对总样本量为 N_pat=1,240 例的患者队列[3]，"
         "本课题拟构建跨尺度特征对齐模块以增强切片表征学习，并通过指数移动平均（Exponential Moving Average, EMA）更新教师网络参数。\n\n"
-        "**2.3.1 方法与验证设计：** 在每张切片采样 $N_{\\text{patch}}=512$ 个图块的设置下，"
-        "跨尺度特征对齐模块（对应图2-1中的同名模块）利用 EMA 教师特征计算对齐损失 $L_{\\text{align}}$，"
-        "并构成总目标函数 $L_{\\text{total}} = L_{\\text{cls}} + \\lambda L_{\\text{align}}$[8]。"
+        "**2.3.1 方法与验证设计：** 在每张切片采样 N_patch=512 个图块的设置下，"
+        "跨尺度特征对齐模块（对应图2-1中的同名模块）利用 EMA 教师特征计算对齐损失 L_align，"
+        "并构成总目标函数 L_total = L_cls + λL_align[8]。"
         "实验拟在 5 折交叉验证、批大小 batch=8 的设置下开展消融实验，以验证该模块能否有效缓解多倍率特征割裂问题；上述对比结论仅在弱监督切片级标签条件下成立。"
     )
     t25f_external_notes = (
@@ -235,8 +235,8 @@ def main():
         "| 缩写界定 | 2.1.2与2.3.1连续两次括注 `（Exponential Moving Average, EMA）` | 2.1.2首见界定全称，2.3.1直接使用简称 `EMA` | 2.1.2、2.3.1 |\n"
         "| 非标黑话与口语 | 为抓手赋能 / 跑个消融 | 构建……以增强 / 开展消融实验 | 2.1.2、2.3.1 |\n"
         "| 过度断言动词降级 | 证明本方法彻底解决了多倍率特征割裂痛点 | 验证该模块能否有效缓解多倍率特征割裂问题 | 2.3.1 |\n"
-        "| 数学符号（一符多义） | 患者数 $N=1,240$、图块数 $N=512$ | 患者数 $N_{\\text{pat}}=1,240$、图块数 $N_{\\text{patch}}=512$ | 2.1.2、2.3.1 |\n"
-        "| 数学符号（前后漂移） | 分步写 $L_{\\text{align}}$、总损失写 $L_{\\text{match}}$ | 统一为 $L_{\\text{align}}$ | 2.3.1 |"
+        "| 数学符号（一符多义） | 患者数 N=1,240、图块数 N=512 | 患者数 N_pat=1,240、图块数 N_patch=512 | 2.1.2、2.3.1 |\n"
+        "| 数学符号（前后漂移） | 分步写 L_align、总损失写 L_match | 统一为 L_align | 2.3.1 |"
     )
 
     check_md_path = Path(__file__).resolve().parent / "public-writing-check.md"
@@ -252,10 +252,10 @@ def main():
 
     # 5a. All factual/protocol/citation anchors, calibrated verb phrase, and exact citation positions must remain intact in main text
     preserved_anchors = [
-        "$N_{\\text{pat}}=1,240$ 例",
+        "N_pat=1,240 例",
         "患者队列[3]",
-        "$N_{\\text{patch}}=512$ 个",
-        "$L_{\\text{total}} = L_{\\text{cls}} + \\lambda L_{\\text{align}}$[8]",
+        "N_patch=512 个",
+        "L_total = L_cls + λL_align[8]",
         "5 折交叉验证",
         "batch=8",
         "开展消融实验，以验证该模块能否有效缓解多倍率特征割裂问题",
@@ -276,9 +276,9 @@ def main():
         "痛点",
         "多尺度融合支路",
         "层次对齐单元",
-        "$L_{\\text{match}}$",
-        "$N=1,240$",
-        "$N=512$",
+        "L_match",
+        "N=1,240",
+        "N=512",
         "20 倍",
         "5 倍",
         "双向交叉注意力",
@@ -289,9 +289,9 @@ def main():
 
     # 5c. Unified module name, disambiguated symbols, and first-occurrence-only abbreviation expansion
     assert t25f_main_text.count("跨尺度特征对齐模块") >= 2
-    assert "$N_{\\text{pat}}=1,240$" in t25f_main_text
-    assert "$N_{\\text{patch}}=512$" in t25f_main_text
-    assert t25f_main_text.count("L_{\\text{align}}") >= 2
+    assert "N_pat=1,240" in t25f_main_text
+    assert "N_patch=512" in t25f_main_text
+    assert t25f_main_text.count("L_align") >= 2
     assert t25f_main_text.count("（Exponential Moving Average, EMA）") == 1
     assert "利用 EMA 教师特征计算对齐损失" in t25f_main_text
 
