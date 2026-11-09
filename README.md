@@ -53,51 +53,9 @@
 
 本 Skill 遵循 Agent Skills 渐进式披露规范：主控入口 [`SKILL.md`](opening-report-writer/SKILL.md) 仅负责意图识别、权限底线与路由分发，按任务所处阶段动态加载对应的参考模块：
 
-```mermaid
-flowchart TB
-  subgraph Router["总控路由层 · SKILL.md"]
-    R["识别任务意图 · 权限与事实底线 · 按阶段按需加载"]
-  end
-
-  subgraph Stage1["阶段一：拆题与选文规划 · topic-to-plan.md"]
-    S1A["输入分层与题目收敛"] --> S1B["对标论文检索与候选确认"]
-    S1B --> S1C["五部分骨架 & 核心术语/符号基准约定"]
-  end
-
-  subgraph Stage2["阶段二：章节起草与生成 · section-writing-guide.md"]
-    S2A["精读对标论文 Abstract/Intro/Related Work"] --> S2B["1.1—第5节论证脉络与机制迁移"]
-    S2B --> S2C["实验协议防泄漏 & 缺失事实【待补】占位"]
-  end
-
-  subgraph Stage3["阶段三：审查完善与规范化 · review-and-polish.md (v2.0 新增)"]
-    S3A["工序一：锁定四类改写锚点"] --> S3B["工序二：章节去重与导师反馈返修"]
-    S3B --> S3C["工序三：全文术语与数学符号规范化"]
-    S3C --> S3D["工序四：去套话/破排比/控括号/动词校准"]
-    S3D --> S3E["工序五 & 六：图文引文联动与读者五问门禁"]
-  end
-
-  subgraph Stage4["阶段四：图表与 Word 交付 · format-rules.md"]
-    S4A["4–5色语义分区流程图 + 同名 .mmd/.svg 源码"] --> S4B["指定范文题录对齐 & DOCX 模板复用与定稿清零"]
-  end
-
-  R --> Stage1
-  R --> Stage2
-  R --> Stage3
-  R --> Stage4
-  Stage1 ==> Stage2 ==> Stage3 ==> Stage4
-
-  classDef router fill:#f8fafc,stroke:#334155,stroke-width:2px,color:#0f172a;
-  classDef s1 fill:#eff6ff,stroke:#2563eb,stroke-width:1.5px,color:#1e3a8a;
-  classDef s2 fill:#f0fdf4,stroke:#16a34a,stroke-width:1.5px,color:#14532d;
-  classDef s3 fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f;
-  classDef s4 fill:#f3e8ff,stroke:#7c3aed,stroke-width:1.5px,color:#4c1d95;
-
-  class R router;
-  class S1A,S1B,S1C s1;
-  class S2A,S2B,S2C s2;
-  class S3A,S3B,S3C,S3D,S3E s3;
-  class S4A,S4B s4;
-```
+<p align="center">
+  <img src="assets/architecture-v2.svg" alt="opening-report-writer v2.0 四阶段渐进式披露与审查规范化架构" width="100%">
+</p>
 
 ### 仓库与安装包目录结构
 
@@ -114,6 +72,8 @@ opening-report-writer-public/
 │   │   ├── review-and-polish.md         # [阶段三·v2.0] 三种触发模式、Audit→Rewrite→Verify 与六道审查工序
 │   │   └── format-rules.md              # [阶段四] 缺口占位符门禁、标点边界、配图源码同步与 Word 容器复用
 │   └── LICENSE                          # MIT 许可证（随安装包分发）
+├── assets/
+│   └── architecture-v2.svg              # v2.0 四阶段渐进式披露与审查规范化矢量架构图
 └── tests/                               # 【验收与回归测试套件】不随 Skill 安装
     ├── acceptance.md                    # 验收标准与成熟度边界说明
     ├── public-writing-inputs.md         # 公开测试用例输入（含 v2.0 新增 T25a—T25f）

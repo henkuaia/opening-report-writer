@@ -1,0 +1,299 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 720" width="100%" height="100%" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+    <linearGradient id="routerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="s3HeaderGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.06"/>
+    </filter>
+    <marker id="arrowSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#D97706"/>
+    </marker>
+    <marker id="arrowFlow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <!-- Outer Canvas -->
+  <rect x="4" y="4" width="1232" height="712" rx="14" fill="url(#bgGrad)" stroke="#CBD5E1" stroke-width="1.5"/>
+
+  <!-- Top Title Banner -->
+  <text x="32" y="38" font-size="17.5" font-weight="700" fill="#0F172A">opening-report-writer v2.0 · 四阶段渐进式披露（Progressive Disclosure）与审查规范化架构</text>
+  <text x="32" y="59" font-size="12.5" fill="#475569">按任务所处阶段动态加载对应参考指南，物理隔离“宏观立论生成”与“微观审查校对”，消除上下文注意力稀释与跨章术语漂移</text>
+
+  <!-- Top Right Legend Pills -->
+  <rect x="854" y="20" width="110" height="24" rx="12" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1"/>
+  <text x="909" y="36" font-size="11" font-weight="600" fill="#1D4ED8" text-anchor="middle">按需渐进式加载</text>
+
+  <rect x="972" y="20" width="110" height="24" rx="12" fill="#FEF3C7" stroke="#FCD34D" stroke-width="1"/>
+  <text x="1027" y="36" font-size="11" font-weight="600" fill="#B45309" text-anchor="middle">前置锁表自回归</text>
+
+  <rect x="1090" y="20" width="118" height="24" rx="12" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+  <text x="1149" y="36" font-size="11" font-weight="600" fill="#15803D" text-anchor="middle">四类锚点零丢失</text>
+
+  <!-- ==================== LAYER 1: ROUTER (SKILL.md) ==================== -->
+  <g filter="url(#cardShadow)">
+    <rect x="32" y="74" width="1176" height="82" rx="10" fill="#FFFFFF" stroke="#334155" stroke-width="1.5"/>
+    <path d="M 32 84 Q 32 74 42 74 L 226 74 L 226 156 L 42 156 Q 32 156 32 146 Z" fill="url(#routerGrad)"/>
+    <text x="129" y="108" font-size="14.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">总控路由层</text>
+    <rect x="75" y="118" width="108" height="22" rx="5" fill="#334155"/>
+    <text x="129" y="133" font-size="12" font-weight="600" fill="#E2E8F0" text-anchor="middle" font-family="Consolas, monospace">SKILL.md</text>
+
+    <!-- Router Step 1 -->
+    <rect x="244" y="86" width="302" height="58" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="256" y="108" font-size="13" font-weight="700" fill="#0F172A">① 任务意图与阶段识别</text>
+    <text x="256" y="128" font-size="11" fill="#475569">区分拆题规划 / 章节起草 / 专项审查改写 / 诊断 / 排版</text>
+
+    <!-- Router Step 2 -->
+    <rect x="560" y="86" width="310" height="58" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="572" y="108" font-size="13" font-weight="700" fill="#0F172A">② 渐进式按需路由（不盲读全仓）</text>
+    <text x="572" y="128" font-size="11" fill="#475569">仅加载当前阶段所需参考文件，已有初稿直接跳入阶段三</text>
+
+    <!-- Router Step 3 -->
+    <rect x="884" y="86" width="310" height="58" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="896" y="108" font-size="13" font-weight="700" fill="#0F172A">③ 全局权限与事实硬边界</text>
+    <text x="896" y="128" font-size="11" fill="#475569">学校正式模板优先 · 只读诊断不改文件 · 严禁捏造题录与数据</text>
+  </g>
+
+  <!-- Routing Arrows from Router to 4 Stages -->
+  <line x1="152" y1="156" x2="152" y2="194" stroke="#475569" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#arrowSlate)"/>
+  <rect x="92" y="164" width="120" height="19" rx="4" fill="#F1F5F9"/>
+  <text x="152" y="177" font-size="11" fill="#334155" font-weight="600" text-anchor="middle">新建报告 / 拆题规划</text>
+
+  <line x1="432" y1="156" x2="432" y2="194" stroke="#475569" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#arrowSlate)"/>
+  <rect x="372" y="164" width="120" height="19" rx="4" fill="#F1F5F9"/>
+  <text x="432" y="177" font-size="11" fill="#334155" font-weight="600" text-anchor="middle">文献迁移 / 章节起草</text>
+
+  <line x1="752" y1="156" x2="752" y2="194" stroke="#D97706" stroke-width="2.2" marker-end="url(#arrowAmber)"/>
+  <rect x="642" y="163" width="220" height="20" rx="4" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
+  <text x="752" y="177" font-size="11" fill="#B45309" font-weight="700" text-anchor="middle">已有初稿：直达术语规范化 / 去套话 / 返修</text>
+
+  <line x1="1084" y1="156" x2="1084" y2="194" stroke="#475569" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#arrowSlate)"/>
+  <rect x="1020" y="164" width="128" height="19" rx="4" fill="#F1F5F9"/>
+  <text x="1084" y="177" font-size="11" fill="#334155" font-weight="600" text-anchor="middle">配图源码 / Word 定稿</text>
+
+  <!-- ==================== LAYER 2: FOUR STAGES ==================== -->
+
+  <!-- STAGE 1: topic-to-plan.md (x=32..272, w=240) -->
+  <g filter="url(#cardShadow)">
+    <rect x="32" y="198" width="240" height="390" rx="10" fill="#FFFFFF" stroke="#93C5FD" stroke-width="1.5"/>
+    <path d="M 32 208 Q 32 198 42 198 L 262 198 Q 272 198 272 208 L 272 256 L 32 256 Z" fill="#EFF6FF"/>
+    <line x1="32" y1="256" x2="272" y2="256" stroke="#BFDBFE" stroke-width="1.5"/>
+    <text x="46" y="222" font-size="14" font-weight="700" fill="#1E3A8A">阶段一：拆题与选文规划</text>
+    <text x="46" y="244" font-size="11.5" font-weight="600" fill="#2563EB" font-family="Consolas, monospace">references/topic-to-plan.md</text>
+
+    <!-- S1 Box 1 -->
+    <rect x="46" y="270" width="212" height="58" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="56" y="290" font-size="12.5" font-weight="700" fill="#1E293B">1. 输入分层与拆题表</text>
+    <text x="56" y="308" font-size="11" fill="#475569">抽取研究对象、任务边界与现实约束</text>
+    <text x="56" y="322" font-size="11" fill="#475569">识别最少待补材料（通常 ≤ 3 项）</text>
+
+    <!-- S1 Box 2 -->
+    <rect x="46" y="338" width="212" height="58" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="56" y="358" font-size="12.5" font-weight="700" fill="#1E293B">2. 对标论文检索与候选确认</text>
+    <text x="56" y="376" font-size="11" fill="#475569">初筛 3–5 篇、推荐 2–3 篇高匹配论文</text>
+    <text x="56" y="390" font-size="11" fill="#475569">核实正式发表版本与全文可读状态</text>
+
+    <!-- S1 Box 3 -->
+    <rect x="46" y="406" width="212" height="58" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="56" y="426" font-size="12.5" font-weight="700" fill="#1E293B">3. 五部分骨架与工作项映射</text>
+    <text x="56" y="444" font-size="11" fill="#475569">2.1.2 内容 ↔ 2.2 难点 ↔ 2.3 方案 ↔ 目标</text>
+    <text x="56" y="458" font-size="11" fill="#475569">学校正式模板层级优先，按职责映射</text>
+
+    <!-- S1 Box 4 (Highlight) -->
+    <rect x="46" y="474" width="212" height="64" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1.2"/>
+    <text x="56" y="494" font-size="12.5" font-weight="700" fill="#1D4ED8">4. 核心术语与符号基准约定 ★</text>
+    <text x="56" y="512" font-size="11" fill="#1E40AF">前置约定工作项/模块唯一标准名称、</text>
+    <text x="56" y="527" font-size="11" fill="#1E40AF">首见缩写及数学符号，从源头防漂移</text>
+
+    <!-- S1 Footer -->
+    <rect x="46" y="548" width="212" height="28" rx="5" fill="#DBEAFE"/>
+    <text x="152" y="566" font-size="11.5" font-weight="700" fill="#1E3A8A" text-anchor="middle">交付：选文建议 · 提纲 · 术语基准</text>
+  </g>
+
+  <!-- Flow Arrow Stage 1 -> Stage 2 -->
+  <line x1="272" y1="392" x2="298" y2="392" stroke="#334155" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
+
+  <!-- STAGE 2: section-writing-guide.md (x=302..558, w=256) -->
+  <g filter="url(#cardShadow)">
+    <rect x="302" y="198" width="256" height="390" rx="10" fill="#FFFFFF" stroke="#86EFAC" stroke-width="1.5"/>
+    <path d="M 302 208 Q 302 198 312 198 L 548 198 Q 558 198 558 208 L 558 256 L 302 256 Z" fill="#F0FDF4"/>
+    <line x1="302" y1="256" x2="558" y2="256" stroke="#BBF7D0" stroke-width="1.5"/>
+    <text x="316" y="222" font-size="14" font-weight="700" fill="#14532D">阶段二：章节起草与生成</text>
+    <text x="316" y="244" font-size="11.5" font-weight="600" fill="#16A34A" font-family="Consolas, monospace">section-writing-guide.md</text>
+
+    <!-- S2 Box 1 -->
+    <rect x="316" y="270" width="228" height="58" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="326" y="290" font-size="12.5" font-weight="700" fill="#1E293B">1. 精读对标论文与写法迁移</text>
+    <text x="326" y="308" font-size="11" fill="#475569">拆解 Abstract / Intro / Related Work</text>
+    <text x="326" y="322" font-size="11" fill="#475569">迁移比较维度与证据安排，不抄原句</text>
+
+    <!-- S2 Box 2 -->
+    <rect x="316" y="338" width="228" height="58" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="326" y="358" font-size="12.5" font-weight="700" fill="#1E293B">2. 1.1—第5节分章立论推进</text>
+    <text x="326" y="376" font-size="11" fill="#475569">1.1 场景约束 → 1.2 路线机制比较 →</text>
+    <text x="326" y="390" font-size="11" fill="#475569">2.2 机理矛盾 → 2.3 方案与验证闭环</text>
+
+    <!-- S2 Box 3 -->
+    <rect x="316" y="406" width="228" height="58" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="326" y="426" font-size="12.5" font-weight="700" fill="#1E293B">3. 实验预算核算与防评估泄漏</text>
+    <text x="326" y="444" font-size="11" fill="#475569">区分选模与多折评估 · 核对离线缓存</text>
+    <text x="326" y="458" font-size="11" fill="#475569">与训练视图一致性 · 界定多因素归因</text>
+
+    <!-- S2 Box 4 (Highlight) -->
+    <rect x="316" y="474" width="228" height="64" rx="6" fill="#F0FDF4" stroke="#4ADE80" stroke-width="1.2"/>
+    <text x="326" y="494" font-size="12.5" font-weight="700" fill="#15803D">4. 防定性转定量 &amp; 显式留白 ★</text>
+    <text x="326" y="512" font-size="11" fill="#166534">严禁将“效果较好”脑补成具体百分比</text>
+    <text x="326" y="527" font-size="11" fill="#166534">缺口标【待补：数据/文献/基本情况｜…】</text>
+
+    <!-- S2 Footer -->
+    <rect x="316" y="548" width="228" height="28" rx="5" fill="#DCFCE7"/>
+    <text x="430" y="566" font-size="11.5" font-weight="700" fill="#14532D" text-anchor="middle">交付：无图文字初稿（内嵌模式A自检）</text>
+  </g>
+
+  <!-- Flow Arrow Stage 2 -> Stage 3 -->
+  <line x1="558" y1="392" x2="584" y2="392" stroke="#334155" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
+
+  <!-- STAGE 3: review-and-polish.md (x=588..934, w=346) - CENTERPIECE -->
+  <g filter="url(#cardShadow)">
+    <rect x="588" y="198" width="346" height="390" rx="10" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2.2"/>
+    <path d="M 588 208 Q 588 198 598 198 L 924 198 Q 934 198 934 208 L 934 256 L 588 256 Z" fill="url(#s3HeaderGrad)"/>
+    <text x="602" y="222" font-size="14.5" font-weight="700" fill="#FFFFFF">阶段三：审查完善与规范化</text>
+    <rect x="838" y="206" width="84" height="20" rx="10" fill="#FEF3C7"/>
+    <text x="880" y="220" font-size="11" font-weight="700" fill="#92400E" text-anchor="middle">v2.0 核心模块</text>
+    <text x="602" y="244" font-size="11.5" font-weight="600" fill="#FEF3C7" font-family="Consolas, monospace">references/review-and-polish.md</text>
+
+    <!-- Audit -> Rewrite -> Verify Banner -->
+    <rect x="602" y="266" width="318" height="38" rx="6" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.2"/>
+    <text x="761" y="282" font-size="12" font-weight="700" fill="#92400E" text-anchor="middle">Audit → Rewrite → Verify 三段式自回归约束</text>
+    <text x="761" y="297" font-size="10" fill="#78350F" text-anchor="middle">① 顶部前置锁表 → ② 独立干净修订正文 → ③ 正文外核销与对照表</text>
+
+    <!-- 6 Passes Grid (2 columns x 3 rows) -->
+    <!-- Pass 1 -->
+    <rect x="602" y="312" width="154" height="72" rx="6" fill="#FFFFFF" stroke="#FCD34D" stroke-width="1.2"/>
+    <text x="610" y="330" font-size="12" font-weight="700" fill="#B45309">工序一｜锁四类改写锚点</text>
+    <text x="610" y="347" font-size="10.5" fill="#475569">· 核心论点与因果方向</text>
+    <text x="610" y="362" font-size="10.5" fill="#475569">· 数值口径与划分协议</text>
+    <text x="610" y="377" font-size="10.5" fill="#475569">· 必要限定与引文 [n] 映射</text>
+
+    <!-- Pass 2 -->
+    <rect x="766" y="312" width="154" height="72" rx="6" fill="#FFFFFF" stroke="#FCD34D" stroke-width="1.2"/>
+    <text x="774" y="330" font-size="12" font-weight="700" fill="#B45309">工序二｜去重与反馈返修</text>
+    <text x="774" y="347" font-size="10.5" fill="#475569">· 1.1—第4部分职责去重</text>
+    <text x="774" y="362" font-size="10.5" fill="#475569">· 补强四类空洞论证缺口</text>
+    <text x="774" y="377" font-size="10.5" fill="#475569">· 越界细节待移正文外保护</text>
+
+    <!-- Pass 3 -->
+    <rect x="602" y="392" width="154" height="72" rx="6" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="610" y="410" font-size="12" font-weight="700" fill="#B45309">工序三｜术语与符号统一</text>
+    <text x="610" y="427" font-size="10.5" fill="#475569">· 模块跨章跨图“一物一名”</text>
+    <text x="610" y="442" font-size="10.5" fill="#475569">· 外文缩写“首见界定闭环”</text>
+    <text x="610" y="457" font-size="10.5" fill="#475569">· 数学符号消除一符多义</text>
+
+    <!-- Pass 4 -->
+    <rect x="766" y="392" width="154" height="72" rx="6" fill="#FFFFFF" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="774" y="410" font-size="12" font-weight="700" fill="#B45309">工序四｜语体句式与标点</text>
+    <text x="774" y="427" font-size="10.5" fill="#475569">· 去夸耀/报幕词与公文黑话</text>
+    <text x="774" y="442" font-size="10.5" fill="#475569">· 实证与预期动词强度校准</text>
+    <text x="774" y="457" font-size="10.5" fill="#475569">· 单句注释括号 ≤1 处</text>
+
+    <!-- Pass 5 -->
+    <rect x="602" y="472" width="154" height="66" rx="6" fill="#FFFFFF" stroke="#FCD34D" stroke-width="1.2"/>
+    <text x="610" y="490" font-size="12" font-weight="700" fill="#B45309">工序五｜图文与引文联动</text>
+    <text x="610" y="507" font-size="10.5" fill="#475569">· 模块图紧随对应子节引出段</text>
+    <text x="610" y="522" font-size="10.5" fill="#475569">· 图框术语与正文 100% 对齐</text>
+
+    <!-- Pass 6 -->
+    <rect x="766" y="472" width="154" height="66" rx="6" fill="#FFFFFF" stroke="#FCD34D" stroke-width="1.2"/>
+    <text x="774" y="490" font-size="12" font-weight="700" fill="#B45309">工序六｜成稿读者检查</text>
+    <text x="774" y="507" font-size="10.5" fill="#475569">· 读者五问闭环核查</text>
+    <text x="774" y="522" font-size="10.5" fill="#475569">· 清理规则泄漏与过程汇报</text>
+
+    <!-- S3 Footer -->
+    <rect x="602" y="548" width="318" height="28" rx="5" fill="#FDE68A"/>
+    <text x="761" y="566" font-size="11.5" font-weight="700" fill="#78350F" text-anchor="middle">交付：修订正文 + 《锚点核销》与《术语符号对照表》</text>
+  </g>
+
+  <!-- Flow Arrow Stage 3 -> Stage 4 -->
+  <line x1="934" y1="392" x2="960" y2="392" stroke="#334155" stroke-width="2.2" marker-end="url(#arrowFlow)"/>
+
+  <!-- STAGE 4: format-rules.md (x=964..1208, w=244) -->
+  <g filter="url(#cardShadow)">
+    <rect x="964" y="198" width="244" height="390" rx="10" fill="#FFFFFF" stroke="#D8B4FE" stroke-width="1.5"/>
+    <path d="M 964 208 Q 964 198 974 198 L 1198 198 Q 1208 198 1208 208 L 1208 256 L 964 256 Z" fill="#FAF5FF"/>
+    <line x1="964" y1="256" x2="1208" y2="256" stroke="#E9D5FF" stroke-width="1.5"/>
+    <text x="978" y="222" font-size="14" font-weight="700" fill="#4C1D95">阶段四：图表与 Word 交付</text>
+    <text x="978" y="244" font-size="11.5" font-weight="600" fill="#7C3AED" font-family="Consolas, monospace">references/format-rules.md</text>
+
+    <!-- S4 Box 1 -->
+    <rect x="978" y="270" width="216" height="58" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="988" y="290" font-size="12.5" font-weight="700" fill="#1E293B">1. 学科中性 4–5 色语义配图</text>
+    <text x="988" y="308" font-size="11" fill="#475569">学校黑白要求优先；无限制时按</text>
+    <text x="988" y="322" font-size="11" fill="#475569">输入/处理/输出/评估分区，灰度可辨</text>
+
+    <!-- S4 Box 2 (Highlight) -->
+    <rect x="978" y="338" width="216" height="58" rx="6" fill="#FAF5FF" stroke="#C084FC" stroke-width="1.2"/>
+    <text x="988" y="358" font-size="12.5" font-weight="700" fill="#6D28D9">2. 同名可编辑源码同步 ★</text>
+    <text x="988" y="376" font-size="11" fill="#5B21B6">生成 fig2-1.png 时同目录必交</text>
+    <text x="988" y="390" font-size="11" fill="#5B21B6">同名 fig2-1.mmd / .svg 源文件</text>
+
+    <!-- S4 Box 3 -->
+    <rect x="978" y="406" width="216" height="58" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="988" y="426" font-size="12.5" font-weight="700" fill="#1E293B">3. 参考文献与引文域保护</text>
+    <text x="988" y="444" font-size="11" fill="#475569">按指定范文对齐缩进/行距/DOI；</text>
+    <text x="988" y="458" font-size="11" fill="#475569">保护非引用数字不被误设为上标</text>
+
+    <!-- S4 Box 4 -->
+    <rect x="978" y="474" width="216" height="64" rx="6" fill="#FAF5FF" stroke="#C084FC" stroke-width="1.2"/>
+    <text x="988" y="494" font-size="12.5" font-weight="700" fill="#6D28D9">4. DOCX 容器复用与清零 ★</text>
+    <text x="988" y="512" font-size="11" fill="#5B21B6">原位保留封面/审批表合并单元格；</text>
+    <text x="988" y="527" font-size="11" fill="#5B21B6">草稿黄色高亮【待补】，定稿前清零</text>
+
+    <!-- S4 Footer -->
+    <rect x="978" y="548" width="216" height="28" rx="5" fill="#F3E8FF"/>
+    <text x="1086" y="566" font-size="11.5" font-weight="700" fill="#4C1D95" text-anchor="middle">交付：图稿源码 · 可编辑 DOCX</text>
+  </g>
+
+  <!-- ==================== LAYER 3: GLOBAL INVARIANTS BAR ==================== -->
+  <g filter="url(#cardShadow)">
+    <rect x="32" y="606" width="1176" height="90" rx="10" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+    <rect x="32" y="606" width="1176" height="26" rx="10" fill="#F1F5F9"/>
+    <rect x="32" y="620" width="1176" height="12" fill="#F1F5F9"/>
+    <line x1="32" y1="632" x2="1208" y2="632" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="620" y="624" font-size="12" font-weight="700" fill="#334155" text-anchor="middle">贯穿全生命周期的三大全局不变量（Global Quality Gates）</text>
+
+    <!-- Invariant 1 -->
+    <circle cx="56" cy="662" r="10" fill="#DBEAFE"/>
+    <text x="56" y="666" font-size="11" font-weight="700" fill="#1D4ED8" text-anchor="middle">1</text>
+    <text x="74" y="657" font-size="12" font-weight="700" fill="#0F172A">四类事实与协议锚点锁死</text>
+    <text x="74" y="675" font-size="10.5" fill="#475569">核心论点、数值口径、评价协议限定与 [n] 引文跨轮次零篡改</text>
+
+    <line x1="416" y1="640" x2="416" y2="686" stroke="#E2E8F0" stroke-width="1.5"/>
+
+    <!-- Invariant 2 -->
+    <circle cx="440" cy="662" r="10" fill="#FEF3C7"/>
+    <text x="440" y="666" font-size="11" font-weight="700" fill="#B45309" text-anchor="middle">2</text>
+    <text x="458" y="657" font-size="12" font-weight="700" fill="#0F172A">全局术语与数学符号一致性闭环</text>
+    <text x="458" y="675" font-size="10.5" fill="#475569">源头基准约定 + 末端统稿：跨章跨图表一物一名、首见缩写、一符一义</text>
+
+    <line x1="824" y1="640" x2="824" y2="686" stroke="#E2E8F0" stroke-width="1.5"/>
+
+    <!-- Invariant 3 -->
+    <circle cx="848" cy="662" r="10" fill="#F3E8FF"/>
+    <text x="848" y="666" font-size="11" font-weight="700" fill="#6D28D9" text-anchor="middle">3</text>
+    <text x="866" y="657" font-size="12" font-weight="700" fill="#0F172A">唯一全角占位符与诚实交付边界</text>
+    <text x="866" y="675" font-size="10.5" fill="#475569">【待补：…】与 [n] 引文零冲突；严格区分文件生成、渲染与实机打开</text>
+  </g>
+</svg>
