@@ -21,6 +21,8 @@
 
 ---
 
+> **版本导航：** 当前默认分支为 **`v2.0`（四阶段解耦与审查规范化版）**；原单阶段版本完整保留在 [`v1.0` 分支](https://github.com/henkuaia/opening-report-writer/tree/v1.0) 与 [Releases (`v1.0.0`)](https://github.com/henkuaia/opening-report-writer/releases) 中，可随时按需切换或下载。
+
 **没有参考范文，也可以开始。** 有题目就能做暂定规划；有文献和研究材料，可以进一步起草或修改正文。学校正式模板始终优先，范文只用于学习结构与写法。
 
 目前的指南与案例更贴近理工科、方法研究和系统研究；其他研究类型可借鉴章节职责与论证方法，但尚未做跨学科效果验证。
@@ -34,7 +36,7 @@
 | 草稿与修改要求 | 指定章节的诊断或修订，保留成立的论证、引用和重要限定 |
 | 报告与正式模板 | 工具支持时整理可编辑 DOCX；生成、渲染与页面检查分别说明 |
 
-写作与整理过程严控定性转定量脑补与张冠李戴，缺失事实统一用`【待补：<数据/文献/基本情况之一>｜具体缺什么】`显式占位并在定稿前清零；区分真并列条目与论述段落，规范双引号与小括号边界；配图在遵循学校要求前提下支持语义分区配色，并同步交付同名可编辑源码（如 `.mmd`/`.svg`）。
+写作与整理全流程采用“**阶段一：拆题与选文规划 → 阶段二：章节起草生成 → 阶段三：审查完善与术语符号规范化 → 阶段四：图表与 Word 交付**”四阶段解耦架构：严控定性转定量脑补与张冠李戴，改写前锁定核心论点、数值口径、限定条件与引文四类固定锚点，缺失事实统一用`【待补：<数据/文献/基本情况之一>｜具体缺什么】`显式占位并在定稿前清零；跨章/跨图表统一术语命名与数学符号（一物一名、首见缩写闭环），区分真并列条目与论述段落，规范双引号与小括号边界；配图在遵循学校要求前提下支持语义分区配色，并同步交付同名可编辑源码（如 `.mmd`/`.svg`）。
 
 ### 从材料到连续正文
 
@@ -341,10 +343,11 @@ Windows 的 `~` 指用户主目录。部分随环境安装器仍使用 `$CODEX_H
 | 文件 | 内容 |
 | --- | --- |
 | [Skill 入口](opening-report-writer/SKILL.md) | 按任务选择读取范围和交付内容，保留事实与权限边界 |
-| [题目到方案](opening-report-writer/references/topic-to-plan.md) | 拆题、默认五部分骨架、工作项对应与验证目标 |
-| [章节写法](opening-report-writer/references/section-writing-guide.md) | 各节职责、研究现状比较和论证修复 |
+| [题目到方案](opening-report-writer/references/topic-to-plan.md) | 阶段一：拆题、选文规划、默认五部分骨架与论证补强 |
+| [章节写法](opening-report-writer/references/section-writing-guide.md) | 阶段二：各节起草职责、研究现状比较与方案生成 |
+| [审查与完善](opening-report-writer/references/review-and-polish.md) | 阶段三：改写锚点锁定、全文术语与数学符号规范化、语体标点精修与反馈返修 |
 | [写法案例](opening-report-writer/references/research-status-cases.md) | 虚构输入、处理示范与判断依据 |
-| [格式指南](opening-report-writer/references/format-rules.md) | 范文学习、模板优先级与 Word 整理 |
+| [格式指南](opening-report-writer/references/format-rules.md) | 阶段四：范文学习、模板优先级、插图源码与 Word 整理 |
 
 ---
 

@@ -208,10 +208,103 @@ def main():
     fills = set(re.findall(r'fill="(#[0-9A-Fa-f]{6})"', svg_content))
     assert 1 <= len(fills) <= 5, f"Expected <=5 semantic fill colors, got {fills}"
 
+    # 5. T25f Audit -> Rewrite -> Verify 3-stage structure, anchor locking, terminology/symbol normalization, and verb downgrade check
+    t25f_pre_lock = (
+        "#### 正文外：前置锁定锚点与术语基准\n"
+        "- **固定事实与协议锚点**：① 核心论点：通过跨尺度特征对齐与 EMA 教师更新改善切片表征并开展消融验证；② 数值口径：患者样本数 `1,240 例`、每张切片采样 `512` 个图块、`5 折交叉验证`、`batch=8`；③ 限定条件：`仅在弱监督切片级标签条件下成立`（拟开展状态）；④ 引文映射：`[3]` 绑定患者队列、`[8]` 绑定总目标函数。\n"
+        "- **全局术语与符号基准**：① 模块唯一标准名：`跨尺度特征对齐模块`（2.1.2、2.3.1 与图2-1统一）；② 首见缩写：2.1.2 首见界定 `指数移动平均（Exponential Moving Average, EMA）`，2.3.1 仅用 `EMA`；③ 数学符号区分：患者数 $N_{\\text{pat}}=1,240$、图块数 $N_{\\text{patch}}=512$，对齐损失统一为 $L_{\\text{align}}$。"
+    )
+    t25f_main_text = (
+        "**2.1.2 主要研究内容：** 针对总样本量为 $N_{\\text{pat}}=1,240$ 例的患者队列[3]，"
+        "本课题拟构建跨尺度特征对齐模块以增强切片表征学习，并通过指数移动平均（Exponential Moving Average, EMA）更新教师网络参数。\n\n"
+        "**2.3.1 方法与验证设计：** 在每张切片采样 $N_{\\text{patch}}=512$ 个图块的设置下，"
+        "跨尺度特征对齐模块（对应图2-1中的同名模块）利用 EMA 教师特征计算对齐损失 $L_{\\text{align}}$，"
+        "并构成总目标函数 $L_{\\text{total}} = L_{\\text{cls}} + \\lambda L_{\\text{align}}$[8]。"
+        "实验拟在 5 折交叉验证、批大小 batch=8 的设置下开展消融实验，以验证该模块能否有效缓解多倍率特征割裂问题；上述对比结论仅在弱监督切片级标签条件下成立。"
+    )
+    t25f_external_notes = (
+        "#### 正文外：改写锚点核销与术语符号统一对照表\n"
+        "- 【核心论点】：已保留 2.1.2 与 2.3.1 关于跨尺度特征对齐、EMA 教师更新与消融验证的中心判断，未改变推导方向；\n"
+        "- 【数值与口径】：已原样保留患者队列 `1,240 例`、每张切片采样 `512` 个图块、`5 折交叉验证` 及 `batch=8`，无定性转定量或凑整；\n"
+        "- 【限定与协议】：已保留 `5 折交叉验证` 协议，并将原括号内的必要限定条件“仅在弱监督切片级标签条件下成立”拆解融入 2.3.1 末句主干；\n"
+        "- 【引文映射】：已保留 `[3]` 对应患者队列来源、`[8]` 对应损失函数设计分句，无增删或错位；\n"
+        "- 【清理项】：已删去“进行了深入剖析，具体如下”空洞报幕套话、“以……为抓手赋能”公文黑话、“跑个消融”口语表达，并将“证明本方法彻底解决了……痛点”降级为匹配开题阶段的“验证该模块能否有效缓解……问题”。\n\n"
+        "| 类别（工作项/模块/术语/缩写/符号） | 原稿不一致或非标表述 | 统一后标准表述 | 涉及章节/图表位置 |\n"
+        "| --- | --- | --- | --- |\n"
+        "| 核心模块名 | 跨尺度特征对齐模块 / 多尺度融合支路 / 层次对齐单元 | 跨尺度特征对齐模块 | 2.1.2、2.3.1、图2-1 |\n"
+        "| 缩写界定 | 2.1.2与2.3.1连续两次括注 `（Exponential Moving Average, EMA）` | 2.1.2首见界定全称，2.3.1直接使用简称 `EMA` | 2.1.2、2.3.1 |\n"
+        "| 非标黑话与口语 | 为抓手赋能 / 跑个消融 | 构建……以增强 / 开展消融实验 | 2.1.2、2.3.1 |\n"
+        "| 过度断言动词降级 | 证明本方法彻底解决了多倍率特征割裂痛点 | 验证该模块能否有效缓解多倍率特征割裂问题 | 2.3.1 |\n"
+        "| 数学符号（一符多义） | 患者数 $N=1,240$、图块数 $N=512$ | 患者数 $N_{\\text{pat}}=1,240$、图块数 $N_{\\text{patch}}=512$ | 2.1.2、2.3.1 |\n"
+        "| 数学符号（前后漂移） | 分步写 $L_{\\text{align}}$、总损失写 $L_{\\text{match}}$ | 统一为 $L_{\\text{align}}$ | 2.3.1 |"
+    )
+
+    check_md_path = Path(__file__).resolve().parent / "public-writing-check.md"
+    check_md_text = check_md_path.read_text(encoding="utf-8")
+    assert t25f_pre_lock in check_md_text, "t25f_pre_lock does not match tests/public-writing-check.md verbatim"
+    assert t25f_main_text in check_md_text, "t25f_main_text does not match tests/public-writing-check.md verbatim"
+    assert t25f_external_notes in check_md_text, "t25f_external_notes does not match tests/public-writing-check.md verbatim"
+
+    pos_pre_lock = check_md_text.index(t25f_pre_lock)
+    pos_main_text = check_md_text.index(t25f_main_text)
+    pos_post_verify = check_md_text.index(t25f_external_notes)
+    assert pos_pre_lock < pos_main_text < pos_post_verify, "T25f must strictly follow Audit -> Rewrite -> Verify order"
+
+    # 5a. All factual/protocol/citation anchors, calibrated verb phrase, and exact citation positions must remain intact in main text
+    preserved_anchors = [
+        "$N_{\\text{pat}}=1,240$ 例",
+        "患者队列[3]",
+        "$N_{\\text{patch}}=512$ 个",
+        "$L_{\\text{total}} = L_{\\text{cls}} + \\lambda L_{\\text{align}}$[8]",
+        "5 折交叉验证",
+        "batch=8",
+        "开展消融实验，以验证该模块能否有效缓解多倍率特征割裂问题",
+        "仅在弱监督切片级标签条件下成立",
+    ]
+    for anchor_token in preserved_anchors:
+        assert anchor_token in t25f_main_text, f"Anchor token missing in T25f main text: {anchor_token}"
+
+    # 5b. Deprecated aliases, symbol collisions, AI filler/slang, overclaims, and ungrounded details must be absent from main text
+    forbidden_in_t25f = [
+        "深入剖析",
+        "具体如下",
+        "抓手",
+        "赋能",
+        "跑个消融",
+        "证明本方法",
+        "彻底解决",
+        "痛点",
+        "多尺度融合支路",
+        "层次对齐单元",
+        "$L_{\\text{match}}$",
+        "$N=1,240$",
+        "$N=512$",
+        "20 倍",
+        "5 倍",
+        "双向交叉注意力",
+        "固定随机种子",
+    ]
+    for bad_token in forbidden_in_t25f:
+        assert bad_token not in t25f_main_text, f"Forbidden alias/slang/overclaim remained in T25f main text: {bad_token}"
+
+    # 5c. Unified module name, disambiguated symbols, and first-occurrence-only abbreviation expansion
+    assert t25f_main_text.count("跨尺度特征对齐模块") >= 2
+    assert "$N_{\\text{pat}}=1,240$" in t25f_main_text
+    assert "$N_{\\text{patch}}=512$" in t25f_main_text
+    assert t25f_main_text.count("L_{\\text{align}}") >= 2
+    assert t25f_main_text.count("（Exponential Moving Average, EMA）") == 1
+    assert "利用 EMA 教师特征计算对齐损失" in t25f_main_text
+
+    # 5d. External checklists must exist outside main text and never leak into main text
+    assert "前置锁定锚点" not in t25f_main_text and "改写锚点核销" not in t25f_main_text and "术语符号统一对照表" not in t25f_main_text
+    for required_note in ["#### 正文外：改写锚点核销与术语符号统一对照表", "【核心论点】", "【数值与口径】", "【限定与协议】", "【引文映射】", "【清理项】", "过度断言动词降级"]:
+        assert required_note in t25f_external_notes
+
     print("PASS: full-width placeholder regex (｜ and |) never conflicts with [n] citations; malformed brackets caught")
     print("PASS: T25c single-sentence explanatory parenthesis bound (<=1 per sentence) and required tokens verified")
     print("PASS: Word draft placeholder highlight verified and final DOCX zero-placeholder gate enforced")
     print("PASS: same-directory same-stem .mmd/.svg/.png pairing and <=5 semantic colors verified")
+    print("PASS: T25f anchor locking, terminology/symbol normalization, and external checklist separation verified")
     print("NOT VERIFIED BY SCRIPT: Mermaid/SVG rasterization, visual layout inspection, and Microsoft Word opening")
     print(output)
 
